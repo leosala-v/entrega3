@@ -1,0 +1,79 @@
+
+  <form [formGroup]="userForm" class="row g-3">
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input 
+        formControlName="email" 
+        type="email" 
+        class="form-control" 
+        [ngClass]="{'is-invalid': emailInvalid}" 
+        id="inputEmail4">
+        <div class="invalid-feedback">
+          <ng-container *ngIf="emailContro.errors?.['required']">
+            Este campo es obligatorio
+          </ng-container>
+          <ng-container *ngIf="emailContro.errors?.['email']">
+            Ingresar un email valido.
+          </ng-container>     
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input 
+        formControlName="password" 
+        type="password" 
+        class="form-control" 
+        [ngClass]="{'is-invalid': paswordControlInvalid}"
+        id="inputPassword4">
+       <div class="inavlidad-feedback">
+          <ng-container *ngIf="paswordControl.errors?.['required']">
+            Este campo es obligatorio
+          </ng-container>
+       </div>  
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Nombre</label>
+        <input 
+        formControlName="name" 
+        type="text" 
+        class="form-control" 
+        [ngClass]="{'is-invalid': nameControlInvalid}"
+        id="inputAddress" 
+        placeholder="Maria">
+        <div class="invalid-feedback">
+          <ng-container *ngIf="nameControl.errors?.['required']">
+            Este campo es obligatorio
+          </ng-container>    
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="inputAddress2" class="form-label">Apellido</label>
+        <input formControlName="lastName" type="text" class="form-control" id="inputAddress2" placeholder="Aguirres">
+      </div>
+      <div class="col-md-6">
+        <label  for="inputCity" class="form-label">Dirección</label>
+        <input formControlName="city" type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">Localidad</label>
+        <select formControlName="Country" id="inputState" class="form-select">
+          <option selected>Elige una opción</option>
+          <option>Centro</option>
+          <option>General Paz</option>
+          <option>Alto Alberdi</option>
+          <option>Alta Córdoba</option>
+          <option>Barrio Jardin</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">ID/DNI/LC/Pasaporte</label>
+        <input formControlName="ID" type="number" class="form-control" id="inputZip">
+      </div>
+      <div class="col-12">
+        <button (click)="onSubmit" type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+        
+  
+    </form>
+
+<!-- <pre>  {{ userForm.value | json}}</pre> -->
